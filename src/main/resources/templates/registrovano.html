@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrace na dětský tábor</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+<div class="container" id="grey">
+    <form class="kosik" th:action="@{/}" method="post">
+        <h1>Rekapitulace Registrace</h1>
+        <h2>Registrace byla provedena s následujícími daty</h2>
+        <label for="jmeno" class="radek">Jméno:</label>
+        <input id="jmeno" type="text" th:field="${form.jmeno}" readonly/>
+
+        <label for="prijmeni" class="radek">Příjmení:</label>
+        <input id="prijmeni" type="text" th:field="${form.prijmeni}" readonly/>
+
+        <label for="datumNarozeni" class="datumNarozeni">Datum narození:</label>
+        <input id="datumNarozeni" type="date" th:field="${form.datumNarozeni}" readonly/>
+
+        <div class="radek">Pohlaví:</div>
+        <div class="skupina">
+            <div>
+                <input id="zena" type="radio" th:field="${form.pohlavi}" value="F" disabled/>
+                <label for="zena">Žena</label>
+            </div>
+            <div>
+                <input id="muz" type="radio" th:field="${form.pohlavi}" value="M" disabled/>
+                <label for="muz">Muž</label>
+            </div>
+        </div>
+
+        <label for="turnus" class="radek">Turnus:</label>
+        <select id="turnus" name="turnus" th:field="${form.turnus}" disabled>
+            <option value=""></option>
+            <option value="1">5. - 11. července</option>
+            <option value="2">12. - 18. července</option>
+            <option value="3">19. - 25. července</option>
+        </select>
+
+
+        <div class="radek">Sporty:</div>
+        <div class="skupina">
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="PLAVANI" disabled/>
+                <label th:for="${#ids.prev('sport')}">Plavání</label>
+            </div>
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="BEH" disabled/>
+                <label th:for="${#ids.prev('sport')}">Běh</label>
+            </div>
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="CYKLISTIKA" disabled/>
+                <label th:for="${#ids.prev('sport')}">Cyklistika</label>
+            </div>
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="FOTBAL" disabled/>
+                <label th:for="${#ids.prev('sport')}">Fotbal</label>
+            </div>
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="BASKETBAL" disabled/>
+                <label th:for="${#ids.prev('sport')}">Basketbal</label>
+            </div>
+        </div>
+
+        <label for="email" class="radek">E-mail:</label>
+        <input id="email" type="email" th:field="${form.email}" readonly/>
+
+        <label for="telefon" class="radek">Telefon:</label>
+        <input id="telefon" type="text" th:field="${form.telefon}" readonly/>
+        <div class="error" th:if="${#fields.hasErrors('form.telefon')}" th:errors="${form.telefon}"></div>
+
+    </form>
+</div>
+
+</body>
+</html>
