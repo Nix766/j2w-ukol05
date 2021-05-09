@@ -9,17 +9,17 @@ import java.time.Period;
 import java.util.EnumSet;
 
 public class RegistraceForm {
-//    @NotBlank
+    @NotBlank
     private String jmeno;
-//    @NotBlank
+    @NotBlank
     private String prijmeni;
-//    @NotNull
+    @NotNull
     private LocalDate datumNarozeni;
-//    @NotBlank
+    @NotBlank
     private String turnus;
-//    @NotNull
+    @NotNull
     private Pohlavi pohlavi;
-//    @NotNull
+    @NotNull
     private EnumSet<Sport> sport;
     private String email;
     private String telefon;
